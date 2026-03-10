@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${guardian.username} + ' - Guardian View'">Guardian View</title>
+</head>
+<body>
+<h1 th:text="'Guardian: ' + ${guardian.username}"></h1>
+<p>Age: <span th:text="${guardian.age}"></span></p>
+
+<h2>Monitored Parents</h2>
+<ul>
+    <li th:each="p : ${children}">
+        <a th:href="@{'/parent/' + ${p.id}}" th:text="${p.username}"></a>
+    </li>
+</ul>
+
+<p><a th:href="@{/}">Home</a></p>
+</body>
+</html>

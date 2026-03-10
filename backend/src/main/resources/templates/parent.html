@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${parent.username} + ' - Parent View'">Parent View</title>
+</head>
+<body>
+<h1 th:text="'Parent: ' + ${parent.username}"></h1>
+<p>Age: <span th:text="${parent.age}"></span></p>
+<p>Health: <span th:text="${parent.healthConditions}"></span></p>
+
+<h2>Medicines</h2>
+<ul>
+    <li th:each="m : ${medicines}" th:text="${m.name} + ' at ' + ${m.schedule}"></li>
+</ul>
+
+<h2>Activities</h2>
+<ul>
+    <li th:each="a : ${activities}" th:text="${a.timestamp} + ' - ' + ${a.movementData}"></li>
+</ul>
+
+<h2>Emergencies</h2>
+<ul>
+    <li th:each="e : ${emergencies}" th:text="${e.time} + ' - ' + ${e.type}"></li>
+</ul>
+
+<p><a th:href="@{/}">Home</a></p>
+</body>
+</html>
